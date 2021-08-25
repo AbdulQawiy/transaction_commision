@@ -1,7 +1,19 @@
 package com.solution.test.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@JsonIgnoreProperties
+@Document
 public class TransactionResult {
 
+    @Transient
+    public static final String SEQUENCE_NAME = "transaction_commission_result";
+
+    @Id
+    String id;
     Long numberOfTransaction;
     Long totalTransactionValue;
     String transactionFeeValue;
@@ -9,8 +21,10 @@ public class TransactionResult {
     Long customerId;
     String customerLastName;
     String transactionLastDate;
+    String dateOfCommissionCalculation;
 
-    public TransactionResult(Long numberOfTransaction, Long totalTransactionValue, String transactionFeeValue, String customerFirstName, Long customerId, String customerLastName, String transactionLastDate) {
+    public TransactionResult(String id, Long numberOfTransaction, Long totalTransactionValue, String transactionFeeValue, String customerFirstName, Long customerId, String customerLastName, String transactionLastDate, String dateOfCommissionCalculation) {
+        this.id = id;
         this.numberOfTransaction = numberOfTransaction;
         this.totalTransactionValue = totalTransactionValue;
         this.transactionFeeValue = transactionFeeValue;
@@ -18,9 +32,18 @@ public class TransactionResult {
         this.customerId = customerId;
         this.customerLastName = customerLastName;
         this.transactionLastDate = transactionLastDate;
+        this.dateOfCommissionCalculation = dateOfCommissionCalculation;
     }
 
     public TransactionResult(){}
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public Long getNumberOfTransaction() {
         return numberOfTransaction;
@@ -78,4 +101,11 @@ public class TransactionResult {
         this.transactionLastDate = transactionLastDate;
     }
 
+    public String getDateOfCommissionCalculation() {
+        return dateOfCommissionCalculation;
+    }
+
+    public void setDateOfCommissionCalculation(String dateOfCommissionCalculation) {
+        this.dateOfCommissionCalculation = dateOfCommissionCalculation;
+    }
 }

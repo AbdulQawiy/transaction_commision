@@ -8,15 +8,17 @@ public class Transactions {
     Long customerId;
     String customerLastName;
     String transactionDate;
+    String transactionPercentageCommission;
 
     public Transactions(){}
-    public Transactions(Long transactionId, String transactionAmount, String customerFirstName, Long customerId, String customerLastName, String transactionDate) {
+    public Transactions(Long transactionId, String transactionAmount, String customerFirstName, Long customerId, String customerLastName, String transactionDate, String transactionPercentageCommission) {
         this.transactionId = transactionId;
         this.transactionAmount = transactionAmount;
         this.customerFirstName = customerFirstName;
         this.customerId = customerId;
         this.customerLastName = customerLastName;
         this.transactionDate = transactionDate;
+        this.transactionPercentageCommission = transactionPercentageCommission;
     }
 
     public Long getTransactionId() {
@@ -65,5 +67,13 @@ public class Transactions {
 
     public void setTransactionDate(String transactionDate) {
         this.transactionDate = transactionDate;
+    }
+
+    public String getTransactionPercentageCommission() {
+        return transactionPercentageCommission;
+    }
+
+    public void setTransactionPercentageCommission(String transactionPercentageCommission) {
+        this.transactionPercentageCommission = transactionPercentageCommission;
     }
 }
