@@ -29,8 +29,11 @@ spring.mongo.databaseName=transactionTest
 Please note that I interpreted the fee_wages table as
 
 Total amounts for a commission request <= 1000 will have a commission of 3.5%
+
 Total amounts for a commission request <= 2500 will have a commission of 2.5%
+
 Total amounts for a commission request <= 5000 will have a commission of 1.1%
+
 Total amounts for a commission request <= 10000 will have a commission of 0.1%
 
 therefore, based on the data given, only customer with id = 3 returns a valid data 3.5 for the commission value
